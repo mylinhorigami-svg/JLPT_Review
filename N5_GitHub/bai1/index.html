@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#d92779">
+  <meta name="description" content="Ôn tập từ vựng JLPT N5.">
+  <title>Luyện từ vựng N5 - Bài 1</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23d92779'/%3E%3Cpath d='M18 17h28v7H36v24h-8V24H18z' fill='white'/%3E%3Ccircle cx='45' cy='44' r='5' fill='%23ffd55a'/%3E%3C/svg%3E">
+  <style>
+    :root{--pink:#d92779;--pink-dark:#aa185b;--pink-soft:#fff0f7;--ink:#251821;--muted:#786b74;--line:#ead7e1;--green:#16875c;--red:#ca3f4d;--shadow:0 18px 55px rgba(104,22,65,.13)}
+    *{box-sizing:border-box}
+    html{font-size:16px}
+    body{margin:0;min-height:100svh;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 0,#ffe5f1 0,transparent 40%),#fffafc}
+    button{font:inherit}
+    .shell{width:min(100%,680px);min-height:100svh;margin:auto;padding:20px 16px 32px;display:flex;flex-direction:column}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{font-weight:800;color:var(--pink-dark);letter-spacing:.01em}.lesson{font-size:.875rem;font-weight:800;color:var(--pink);background:white;border:1px solid #f1bad4;border-radius:999px;padding:7px 12px}
+    main{flex:1;display:flex;align-items:center;justify-content:center}
+    .panel{width:100%;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:28px 22px}
+    .eyebrow{margin:0 0 8px;text-align:center;color:var(--pink);font-size:.8rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    h1,h2,p{margin-top:0}h1{font-size:clamp(1.65rem,7vw,2.45rem);line-height:1.2;text-align:center;margin-bottom:12px}h2{font-size:1.55rem;text-align:center;margin-bottom:12px}
+    .intro{color:var(--muted);line-height:1.65;text-align:center;margin:0 auto 26px;max-width:31rem}
+    .start-icon{width:78px;height:78px;margin:0 auto 22px;border-radius:24px;display:grid;place-items:center;background:var(--pink-soft);color:var(--pink);font-size:2rem;font-weight:900;transform:rotate(-3deg)}
+    .primary,.secondary{width:100%;min-height:54px;border-radius:16px;border:0;font-weight:850;cursor:pointer;transition:transform .15s,filter .15s}
+    .primary{background:linear-gradient(135deg,var(--pink),#ee4c94);color:white;box-shadow:0 10px 25px rgba(217,39,121,.25)}
+    .secondary{background:white;color:var(--pink-dark);border:1.5px solid #e7a8c5;margin-top:12px}
+    button:active{transform:scale(.98)}button:focus-visible{outline:3px solid #ffb9d7;outline-offset:3px}
+    .quiz{display:none}.quiz.active,.result.active{display:block}.start.hidden{display:none}.result{display:none}
+    .topline{display:flex;align-items:center;gap:14px;margin-bottom:28px}.count{font-size:.9rem;font-weight:800;color:var(--muted);white-space:nowrap}.bar{height:9px;flex:1;background:#f4e6ed;border-radius:99px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),#ff76ad);border-radius:inherit;transition:width .3s}
+    .prompt-wrap{text-align:center;margin-bottom:24px}.prompt-label{font-size:.88rem;color:var(--muted);margin-bottom:7px}.word{font-family:"Noto Sans JP",system-ui,sans-serif;font-size:clamp(2.55rem,13vw,4.6rem);font-weight:850;line-height:1.25;letter-spacing:.03em;overflow-wrap:anywhere;margin:0 0 12px}
+    .sound{width:50px;height:50px;border-radius:50%;border:1.5px solid #efb1cf;background:#fff5fa;color:var(--pink-dark);cursor:pointer;font-size:1.25rem;display:inline-grid;place-items:center}
+    .answers{display:grid;grid-template-columns:1fr;gap:11px}.answer{min-height:57px;padding:12px 16px;border-radius:15px;border:1.5px solid var(--line);background:white;color:var(--ink);font-weight:750;text-align:left;cursor:pointer;transition:.15s}.answer:hover{border-color:#e795bd;background:#fff8fb}.answer.correct{border-color:var(--green);background:#eaf8f2;color:#0d704a}.answer.wrong{border-color:var(--red);background:#fff0f1;color:#a72f3b}.answer:disabled{cursor:default}
+    .feedback{min-height:27px;margin:15px 0 0;text-align:center;font-weight:850}.feedback.good{color:var(--green)}.feedback.bad{color:var(--red)}
+    .score-ring{width:132px;height:132px;border-radius:50%;display:grid;place-items:center;margin:22px auto;background:conic-gradient(var(--pink) var(--score),#f2dce7 0);position:relative}.score-ring:after{content:"";position:absolute;inset:12px;border-radius:50%;background:white}.score-text{position:relative;z-index:1;text-align:center;font-weight:900;font-size:1.65rem}.score-text small{display:block;font-size:.76rem;color:var(--muted);margin-top:2px}.result-note{text-align:center;color:var(--muted);line-height:1.6;margin-bottom:20px}
+    footer{text-align:center;color:#9b8d95;font-size:.78rem;margin-top:18px}
+    select.lesson {
+    font-family: inherit;font-weight: 800;cursor: pointer;outline: none;}
+    @media (min-width:560px){.shell{padding:30px 22px}.panel{padding:38px}.answers{grid-template-columns:1fr 1fr}.answer{text-align:center}}
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header><div class="brand">Học tiếng Nhật cùng Linh</div><select
+    class="lesson"
+    aria-label="Chọn bài học"
+    onchange="if(this.value) window.location.href=this.value;"
+>
+    <option value="../bai1/" selected>N5 · Bài 1</option>
+    <option value="../bai2/">N5 · Bài 2</option>
+    <option value="../bai2/">N5 · Bài 3</option>
+    <option value="../bai2/">N5 · Bài 4</option>
+    <option value="../bai2/">N5 · Bài 5</option>
+    <option value="../bai2/">N5 · Bài 6</option>
+    <option value="../bai2/">N5 · Bài 7</option>
+    <option value="../bai2/">N5 · Bài 8</option>
+    <option value="../bai2/">N5 · Bài 9</option>
+
+    </select></header>
+    <main>
+      <section class="panel start" id="start">
+        <div class="start-icon" aria-hidden="true">語彙</div>
+        <p class="eyebrow">Ôn tập từ vựng</p>
+        <p class="intro">Nghe từ tiếng Nhật và chọn nghĩa tiếng Việt đúng.</p>
+        <button class="primary" id="startBtn">Bắt đầu luyện tập</button>
+      </section>
+
+      <section class="panel quiz" id="quiz" aria-live="polite">
+        <div class="topline"><div class="bar" aria-hidden="true"><span id="progressBar"></span></div><div class="count" id="count">1 / 42</div></div>
+        <div class="prompt-wrap">
+          <div class="prompt-label">Chọn nghĩa đúng của từ</div>
+          <div class="word" id="word" lang="ja"></div>
+          <button class="sound" id="soundBtn" aria-label="Nghe lại từ này" title="Nghe lại">🔊</button>
+        </div>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback" aria-live="assertive"></div>
+      </section>
+
+      <section class="panel result" id="result">
+        <p class="eyebrow">🌸HOÀN THÀNH🌸</p>
+        <div class="score-ring" id="scoreRing"><div class="score-text"><span id="score">0/42</span></div></div>
+        <p class="result-note" id="resultNote"></p>
+        <button class="primary" id="retryWrong">Luyện lại từ đã sai</button>
+        <button class="secondary" id="restart">Làm lại từ đầu</button>
+      </section>
+    </main>
+    <footer>JLPT N5</footer>
+  </div>
+
+  <script>
+    const vocabulary = [
+      {word:"わたし",meaning:"Tôi",audio:"watashi"},{word:"わたしたち",meaning:"Chúng tôi",audio:"watashitachi"},{word:"あなた",meaning:"Bạn",audio:"anata"},{word:"ひと",meaning:"Người",audio:"hito"},{word:"かた",meaning:"Vị (cách nói lịch sự của ひと)",audio:"kata"},{word:"みなさん",meaning:"Mọi người",audio:"minasan"},{word:"～さん",meaning:"Ông / bà / anh / chị",audio:"san"},{word:"～ちゃん",meaning:"Bé (cách gọi em nhỏ)",audio:"chan"},{word:"～くん",meaning:"Cách gọi bé trai",audio:"kun"},{word:"～じん",meaning:"Người nước...",audio:"jin"},{word:"せんせい",meaning:"Thầy, cô",audio:"sensei"},{word:"けんしゅうせい",meaning:"Thực tập sinh",audio:"kenshuusei"},{word:"せんもん",meaning:"Chuyên ngành",audio:"senmon"},{word:"だれ",meaning:"Ai",audio:"dare"},{word:"どなた",meaning:"Vị nào (cách nói lịch sự của だれ)",audio:"donata"},{word:"～さい",meaning:"... tuổi",audio:"sai"},{word:"はい",meaning:"Vâng",audio:"hai"},{word:"いいえ",meaning:"Không",audio:"iie"},{word:"きょうし",meaning:"Giáo viên",audio:"kyoushi"},{word:"がくせい",meaning:"Học sinh / Sinh viên",audio:"gakusei"},{word:"かいしゃいん",meaning:"Nhân viên công ty",audio:"kaishain"},{word:"ぎんこういん",meaning:"Nhân viên ngân hàng",audio:"ginkouin"},{word:"いしゃ",meaning:"Bác sĩ",audio:"isha"},{word:"けんきゅうしゃ",meaning:"Nhà nghiên cứu",audio:"kenkyuusha"},{word:"ぎじゅつしゃ",meaning:"Kỹ sư",audio:"gijutsusha"},{word:"だいがく",meaning:"Trường đại học",audio:"daigaku"},{word:"びょういん",meaning:"Bệnh viện",audio:"byouin"},{word:"でんき",meaning:"Điện",audio:"denki"},{word:"アメリカ",meaning:"Mỹ",audio:"amerika"},{word:"イギリス",meaning:"Anh",audio:"igirisu"},{word:"インド",meaning:"Ấn Độ",audio:"indo"},{word:"インドネシア",meaning:"Indonesia",audio:"indoneshia"},{word:"マレーシア",meaning:"Malaysia",audio:"mareeshia"},{word:"かんこく",meaning:"Hàn Quốc",audio:"kankoku"},{word:"タイ",meaning:"Thái Lan",audio:"tai"},{word:"ちゅうごく",meaning:"Trung Quốc",audio:"chuugoku"},{word:"フィリピン",meaning:"Philippines",audio:"firipin"},{word:"ドイツ",meaning:"Đức",audio:"doitsu"},{word:"にほん",meaning:"Nhật Bản",audio:"nihon"},{word:"フランス",meaning:"Pháp",audio:"furansu"},{word:"ブラジル",meaning:"Brazil",audio:"burajiru"},{word:"ベトナム",meaning:"Việt Nam",audio:"betonamu"}
+    ];
+
+    const el = id => document.getElementById(id);
+    let queue=[], index=0, score=0, wrong=[], answeredWrong=false, locked=false, player=new Audio();
+    const shuffle = list => { const a=[...list]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+    const current = () => queue[index];
+
+    function playWord(){
+      player.pause(); player.currentTime=0;
+      player.src=`audio/${current().audio}.mp3`;
+      player.play().catch(()=>{});
+    }
+
+    function choicesFor(item){
+      const pool=vocabulary.filter(v=>v.meaning!==item.meaning);
+      return shuffle([item,...shuffle(pool).slice(0,3)]);
+    }
+
+    function renderQuestion(){
+      locked=false; answeredWrong=false;
+      const item=current();
+      el("word").textContent=item.word;
+      el("count").textContent=`${index+1} / ${queue.length}`;
+      el("progressBar").style.width=`${(index/queue.length)*100}%`;
+      el("feedback").textContent=""; el("feedback").className="feedback";
+      el("answers").replaceChildren(...choicesFor(item).map(choice=>{
+        const b=document.createElement("button"); b.className="answer"; b.textContent=choice.meaning;
+        b.addEventListener("click",()=>choose(b,choice)); return b;
+      }));
+      setTimeout(playWord,180);
+    }
+
+    function choose(button,choice){
+      if(locked) return;
+      if(choice.meaning===current().meaning){
+        locked=true; button.classList.add("correct");
+        if(!answeredWrong) score++;
+        el("feedback").textContent="✓ Chính xác!"; el("feedback").className="feedback good";
+        [...el("answers").children].forEach(b=>b.disabled=true);
+        setTimeout(()=>{index++; index<queue.length?renderQuestion():showResult();},700);
+      }else{
+        button.classList.add("wrong"); button.disabled=true; answeredWrong=true;
+        if(!wrong.includes(current())) wrong.push(current());
+        el("feedback").textContent="Chưa đúng, thử lại nhé!"; el("feedback").className="feedback bad";
+      }
+    }
+
+    function begin(items){
+      queue=shuffle(items); index=0; score=0; wrong=[];
+      el("start").classList.add("hidden"); el("result").classList.remove("active"); el("quiz").classList.add("active");
+      renderQuestion();
+    }
+
+    function showResult(){
+      el("quiz").classList.remove("active"); el("result").classList.add("active");
+      const pct=Math.round(score/queue.length*100);
+      el("score").textContent=`${score}/${queue.length}`; el("scoreRing").style.setProperty("--score",`${pct*3.6}deg`);
+      el("resultTitle").textContent=pct===100?"Xuất sắc!":"Bạn đã làm xong!";
+      el("resultNote").textContent=wrong.length?`Bạn còn ${wrong.length} từ cần ôn lại. Làm lại ngay để nhớ lâu hơn nhé.`:"Bạn đã trả lời đúng tất cả ngay lần đầu.";
+      el("retryWrong").hidden=wrong.length===0;
+    }
+
+    el("startBtn").addEventListener("click",()=>begin(vocabulary));
+    el("soundBtn").addEventListener("click",playWord);
+    el("restart").addEventListener("click",()=>begin(vocabulary));
+    el("retryWrong").addEventListener("click",()=>begin([...wrong]));
+  </script>
+</body>
+</html>

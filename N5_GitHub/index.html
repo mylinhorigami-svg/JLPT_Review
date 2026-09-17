@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#d92779">
+  <title>Luyện tập JLPT N5</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#251821;background:radial-gradient(circle at 50% 0,#ffe5f1,transparent 42%),#fffafc}.wrap{width:min(92%,680px);margin:auto;padding:42px 0}header{text-align:center;margin-bottom:34px}.mark{width:74px;height:74px;margin:auto;display:grid;place-items:center;border-radius:22px;background:#d92779;color:#fff;font-size:2rem;font-weight:900;box-shadow:0 12px 25px #d9277940}h1{font-size:clamp(1.8rem,7vw,2.6rem);margin:18px 0 8px}.sub{color:#786b74;line-height:1.6}.lessons{display:grid;gap:14px}.lesson{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border:1px solid #ead7e1;border-radius:20px;background:#fff;color:#251821;text-decoration:none;box-shadow:0 12px 35px rgba(104,22,65,.09);font-weight:800}.lesson span:first-child{display:flex;align-items:center;gap:14px}.num{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#fff0f7;color:#aa185b}.arrow{color:#d92779;font-size:1.4rem}footer{text-align:center;color:#9b8d95;font-size:.8rem;margin-top:30px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header><div class="mark">あ</div><h1>Luyện tập JLPT N5</h1><div class="sub">Chọn bài đã học để bắt đầu ôn tập</div></header>
+    <section style="padding: 24px; background: white; border-radius: 20px;">
+    <label for="lessonSelect" style="display:block; font-weight:bold; margin-bottom:10px;">
+        Chọn bài muốn luyện
+    </label>
+
+    <select
+        id="lessonSelect"
+        onchange="if(this.value) window.location.href=this.value;"
+        style="width:100%; padding:16px; border-radius:12px; font-size:16px;"
+    >
+        <option value="">-- Chọn bài học --</option>
+        <option value="bai1/">Bài 1 - Từ vựng</option>
+        <option value="bai1/">Bài 2 - Từ vựng</option>
+    </select>
+</section>
+    <footer>Học tiếng Nhật cùng Linh</footer>
+  </main>
+</body>
+</html>

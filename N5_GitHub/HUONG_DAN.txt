@@ -1,0 +1,62 @@
+HƯỚNG DẪN BỘ CHƯƠNG TRÌNH LUYỆN TẬP N5
+
+1. CẤU TRÚC
+
+index.html        : Trang chọn bài học
+bai1/index.html   : Chương trình luyện tập Bài 1
+bai1/audio/       : Âm thanh Bài 1
+
+2. ĐƯA BÀI 1 LÊN GITHUB
+
+- Giải nén file ZIP.
+- Mở thư mục N5_GitHub_mau.
+- Tải index.html, HUONG_DAN.txt và toàn bộ thư mục bai1 lên repository N5.
+- Không tải nguyên file ZIP lên GitHub vì GitHub không tự giải nén ZIP.
+
+3. TẠO BÀI MỚI TRÊN MÁY TÍNH
+
+- Sao chép cả thư mục bai1 và đổi tên thành bai2.
+- Trong bai2/index.html, thay các chỗ “Bài 1” thành “Bài 2”.
+- Tìm dòng bắt đầu bằng: const vocabulary = [
+- Thay danh sách từ bên trong bằng dữ liệu của Bài 2.
+- Chép các file MP3 Bài 2 vào bai2/audio.
+- Tên trong mục audio phải trùng chính xác với tên file MP3, không ghi .mp3.
+
+Ví dụ:
+
+{word:"これ",meaning:"Cái này",audio:"kore"},
+
+thì cần có file:
+
+bai2/audio/kore.mp3
+
+4. THÊM BÀI MỚI VÀO TRANG CHỌN BÀI
+
+Mở index.html ở thư mục ngoài cùng, sao chép dòng của Bài 1 và sửa thành:
+
+<a class="lesson" href="bai2/"><span><span class="num">2</span> Từ vựng Bài 2</span><span class="arrow">›</span></a>
+
+5. KIỂM TRA TRƯỚC KHI TẢI LÊN
+
+- Mở thư mục bằng VS Code.
+- Mở index.html ngoài cùng.
+- Bấm Go Live.
+- Chọn Bài 2 và thử âm thanh, đáp án, nút luyện lại câu sai.
+
+6. ĐƯỜNG LINK SAU KHI BẬT GITHUB PAGES
+
+Trang chính:
+https://mylinhorigami-svg.github.io/N5/
+
+Bài 1:
+https://mylinhorigami-svg.github.io/N5/bai1/
+
+Bài 2 sau khi thêm:
+https://mylinhorigami-svg.github.io/N5/bai2/
+
+LƯU Ý
+
+- Không xóa file index.html.
+- Tên thư mục và tên file không dùng dấu tiếng Việt hoặc khoảng trắng.
+- GitHub phân biệt chữ hoa và chữ thường: bai1 khác Bai1.
+- Repository Public nên không đưa mật khẩu hoặc tài liệu riêng vào đó.
