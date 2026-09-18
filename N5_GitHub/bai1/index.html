@@ -47,15 +47,17 @@
     aria-label="Chọn bài học"
     onchange="if(this.value) window.location.href=this.value;"
 >
-    <option value="../bai1/" selected>N5 · Bài 1</option>
-    <option value="../bai2/">N5 · Bài 2</option>
-    <option value="../bai2/">N5 · Bài 3</option>
-    <option value="../bai2/">N5 · Bài 4</option>
-    <option value="../bai2/">N5 · Bài 5</option>
-    <option value="../bai2/">N5 · Bài 6</option>
-    <option value="../bai2/">N5 · Bài 7</option>
-    <option value="../bai2/">N5 · Bài 8</option>
-    <option value="../bai2/">N5 · Bài 9</option>
+    <option value="../mini_test_kana/hiragana/index.html">Hiragana</option>
+    <option value="../mini_test_kana/katakana/index.html">Katakana</option>
+    <option value="" selected>Từ vựng · Bài 1</option>
+    <option value="../bai2/index.html">Từ vựng · Bài 2</option>
+    <option value="../bai3/index.html">Từ vựng · Bài 3</option>
+    <option value="../bai4/index.html">Từ vựng · Bài 4</option>
+    <option value="../bai5/index.html">Từ vựng · Bài 5</option>
+    <option value="../bai6/index.html">Từ vựng · Bài 6</option>
+    <option value="../bai7/index.html">Từ vựng · Bài 7</option>
+    <option value="../bai8/index.html">Từ vựng · Bài 8</option>
+    <option value="../bai9/index.html">Từ vựng · Bài 9</option>
 
     </select></header>
     <main>
@@ -90,7 +92,48 @@
 
   <script>
     const vocabulary = [
-      {word:"わたし",meaning:"Tôi",audio:"watashi"},{word:"わたしたち",meaning:"Chúng tôi",audio:"watashitachi"},{word:"あなた",meaning:"Bạn",audio:"anata"},{word:"ひと",meaning:"Người",audio:"hito"},{word:"かた",meaning:"Vị (cách nói lịch sự của ひと)",audio:"kata"},{word:"みなさん",meaning:"Mọi người",audio:"minasan"},{word:"～さん",meaning:"Ông / bà / anh / chị",audio:"san"},{word:"～ちゃん",meaning:"Bé (cách gọi em nhỏ)",audio:"chan"},{word:"～くん",meaning:"Cách gọi bé trai",audio:"kun"},{word:"～じん",meaning:"Người nước...",audio:"jin"},{word:"せんせい",meaning:"Thầy, cô",audio:"sensei"},{word:"けんしゅうせい",meaning:"Thực tập sinh",audio:"kenshuusei"},{word:"せんもん",meaning:"Chuyên ngành",audio:"senmon"},{word:"だれ",meaning:"Ai",audio:"dare"},{word:"どなた",meaning:"Vị nào (cách nói lịch sự của だれ)",audio:"donata"},{word:"～さい",meaning:"... tuổi",audio:"sai"},{word:"はい",meaning:"Vâng",audio:"hai"},{word:"いいえ",meaning:"Không",audio:"iie"},{word:"きょうし",meaning:"Giáo viên",audio:"kyoushi"},{word:"がくせい",meaning:"Học sinh / Sinh viên",audio:"gakusei"},{word:"かいしゃいん",meaning:"Nhân viên công ty",audio:"kaishain"},{word:"ぎんこういん",meaning:"Nhân viên ngân hàng",audio:"ginkouin"},{word:"いしゃ",meaning:"Bác sĩ",audio:"isha"},{word:"けんきゅうしゃ",meaning:"Nhà nghiên cứu",audio:"kenkyuusha"},{word:"ぎじゅつしゃ",meaning:"Kỹ sư",audio:"gijutsusha"},{word:"だいがく",meaning:"Trường đại học",audio:"daigaku"},{word:"びょういん",meaning:"Bệnh viện",audio:"byouin"},{word:"でんき",meaning:"Điện",audio:"denki"},{word:"アメリカ",meaning:"Mỹ",audio:"amerika"},{word:"イギリス",meaning:"Anh",audio:"igirisu"},{word:"インド",meaning:"Ấn Độ",audio:"indo"},{word:"インドネシア",meaning:"Indonesia",audio:"indoneshia"},{word:"マレーシア",meaning:"Malaysia",audio:"mareeshia"},{word:"かんこく",meaning:"Hàn Quốc",audio:"kankoku"},{word:"タイ",meaning:"Thái Lan",audio:"tai"},{word:"ちゅうごく",meaning:"Trung Quốc",audio:"chuugoku"},{word:"フィリピン",meaning:"Philippines",audio:"firipin"},{word:"ドイツ",meaning:"Đức",audio:"doitsu"},{word:"にほん",meaning:"Nhật Bản",audio:"nihon"},{word:"フランス",meaning:"Pháp",audio:"furansu"},{word:"ブラジル",meaning:"Brazil",audio:"burajiru"},{word:"ベトナム",meaning:"Việt Nam",audio:"betonamu"}
+      {word:"わたし",meaning:"Tôi",audio:"watashi"},
+      {word:"わたしたち",meaning:"Chúng tôi",audio:"watashitachi"},
+      {word:"あなた",meaning:"Bạn",audio:"anata"},
+      {word:"ひと",meaning:"Người",audio:"hito"},
+      {word:"かた",meaning:"Vị (cách nói lịch sự của ひと)",audio:"kata"},
+      {word:"みなさん",meaning:"Mọi người",audio:"minasan"},
+      {word:"～さん",meaning:"Ông / bà / anh / chị",audio:"san"},
+      {word:"～ちゃん",meaning:"Bé (cách gọi em nhỏ)",audio:"chan"},
+      {word:"～くん",meaning:"Cách gọi bé trai",audio:"kun"},
+      {word:"～じん",meaning:"Người nước...",audio:"jin"},
+      {word:"せんせい",meaning:"Thầy, cô",audio:"sensei"},
+      {word:"けんしゅうせい",meaning:"Thực tập sinh",audio:"kenshuusei"},
+      {word:"せんもん",meaning:"Chuyên ngành",audio:"senmon"},
+      {word:"だれ",meaning:"Ai",audio:"dare"},
+      {word:"どなた",meaning:"Vị nào (cách nói lịch sự của だれ)",audio:"donata"},
+      {word:"～さい",meaning:"... tuổi",audio:"sai"},
+      {word:"はい",meaning:"Vâng",audio:"hai"},
+      {word:"いいえ",meaning:"Không",audio:"iie"},
+      {word:"きょうし",meaning:"Giáo viên",audio:"kyoushi"},
+      {word:"がくせい",meaning:"Học sinh / Sinh viên",audio:"gakusei"},
+      {word:"かいしゃいん",meaning:"Nhân viên công ty",audio:"kaishain"},
+      {word:"ぎんこういん",meaning:"Nhân viên ngân hàng",audio:"ginkouin"},
+      {word:"いしゃ",meaning:"Bác sĩ",audio:"isha"},
+      {word:"けんきゅうしゃ",meaning:"Nhà nghiên cứu",audio:"kenkyuusha"},
+      {word:"ぎじゅつしゃ",meaning:"Kỹ sư",audio:"gijutsusha"},
+      {word:"だいがく",meaning:"Trường đại học",audio:"daigaku"},
+      {word:"びょういん",meaning:"Bệnh viện",audio:"byouin"},
+      {word:"でんき",meaning:"Điện",audio:"denki"},
+      {word:"アメリカ",meaning:"Mỹ",audio:"amerika"},
+      {word:"イギリス",meaning:"Anh",audio:"igirisu"},
+      {word:"インド",meaning:"Ấn Độ",audio:"indo"},
+      {word:"インドネシア",meaning:"Indonesia",audio:"indoneshia"},
+      {word:"マレーシア",meaning:"Malaysia",audio:"mareeshia"},
+      {word:"かんこく",meaning:"Hàn Quốc",audio:"kankoku"},
+      {word:"タイ",meaning:"Thái Lan",audio:"tai"},
+      {word:"ちゅうごく",meaning:"Trung Quốc",audio:"chuugoku"},
+      {word:"フィリピン",meaning:"Philippines",audio:"firipin"},
+      {word:"ドイツ",meaning:"Đức",audio:"doitsu"},
+      {word:"にほん",meaning:"Nhật Bản",audio:"nihon"},
+      {word:"フランス",meaning:"Pháp",audio:"furansu"},
+      {word:"ブラジル",meaning:"Brazil",audio:"burajiru"},
+      {word:"ベトナム",meaning:"Việt Nam",audio:"betonamu"}
     ];
 
     const el = id => document.getElementById(id);
