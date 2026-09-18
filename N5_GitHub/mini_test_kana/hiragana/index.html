@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#d92779">
-  <title>Ôn tập Hiragana</title>
+  <title>Hiragana</title>
   <style>
     :root{--pink:#d92779;--pink-dark:#aa185b;--pink-soft:#fff0f7;--ink:#251821;--muted:#786b74;--line:#ead7e1;--green:#16875c;--red:#ca3f4d;--shadow:0 18px 55px rgba(104,22,65,.13)}*{box-sizing:border-box}
     body{margin:0;min-height:100svh;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 0,#ffe5f1 0,transparent 40%),#fffafc}button{font:inherit}
@@ -28,10 +28,10 @@
     .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--pink),#ff76ad)}
     .prompt-wrap{text-align:center;margin-bottom:24px}
     .prompt-label{font-size:.88rem;color:var(--muted);margin-bottom:7px}
-    .word{font-size:clamp(3rem,17vw,5.5rem);font-weight:850;line-height:1.25;margin:0 0 12px}
+    .word{font-size:clamp(3rem,17vw,4rem);font-weight:750;line-height:1.25;margin:0 0 12px}
     .sound{width:50px;height:50px;border-radius:50%;border:1.5px solid #efb1cf;background:#fff5fa;color:var(--pink-dark);cursor:pointer;font-size:1.25rem}
     .answers{display:grid;gap:11px}
-    .answer{min-height:57px;padding:12px 16px;border-radius:15px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-weight:750;cursor:pointer;font-size:1.5rem;}
+    .answer{min-height:57px;padding:12px 16px;border-radius:15px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-weight:750;cursor:pointer;font-size:3rem;}
     .answer.correct{border-color:var(--green);background:#eaf8f2;color:#0d704a}
     .answer.wrong{border-color:var(--red);background:#fff0f1;color:#a72f3b}
     .feedback{min-height:27px;margin:15px 0 0;text-align:center;font-weight:850}
@@ -49,25 +49,179 @@
 <div class="shell">
   <header><div class="brand">Học tiếng Nhật cùng Linh</div><select class="lesson" onchange="if(this.value) window.location.href=this.value"><option value="" selected>Hiragana</option><option value="../katakana/index.html">Katakana</option><option value="../../bai1/index.html">N5 · Bài 1</option><option value="../../bai2/index.html">N5 · Bài 2</option><option value="../index.html">Trang chọn bài</option></select></header>
   <main>
-    <section class="panel start" id="start"><div class="start-icon">あ</div><p class="eyebrow">Ôn tập Hiragana</p><p class="intro">Nhìn chữ Hiragana, và chọn Romaji đúng.</p><button class="primary" id="startBtn">Bắt đầu luyện tập</button></section>
-    <section class="panel quiz" id="quiz"><div class="topline"><div class="bar"><span id="progressBar"></span></div><div class="count" id="count"></div></div><div class="prompt-wrap"><div class="prompt-label" id="promptLabel"></div><div class="word" id="word" lang="ja"></div><button class="sound" id="soundBtn" title="Nghe lại">🔊</button></div><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div></section>
-    <section class="panel result" id="result"><p class="eyebrow">🌸 HOÀN THÀNH 🌸</p><h2 id="resultTitle"></h2><div class="score-ring" id="scoreRing"><div class="score-text"><span id="score"></span></div></div><p class="result-note" id="resultNote"></p><button class="primary" id="retryWrong">Luyện lại chữ đã sai</button><button class="secondary" id="restart">Làm lại từ đầu</button></section>
-  </main><footer>JLPT N5</footer>
+    <section class="panel start" id="start">
+      <div class="start-icon">あ</div>
+      <p class="eyebrow">Ôn tập Hiragana</p>
+      <p class="intro">Nhìn chữ Hiragana, và chọn Romaji đúng.</p>
+      <button class="primary" id="startBtn">Bắt đầu luyện tập</button>
+    </section>
+    <section class="panel quiz" id="quiz">
+      <div class="topline">
+        <div class="bar">
+          <span id="progressBar"></span>
+        </div><div class="count" id="count"></div></div>
+        <div class="prompt-wrap"><div class="prompt-label" id="promptLabel"></div>
+        <div class="word" id="word" lang="ja"></div>
+        <button class="sound" id="soundBtn" title="Nghe lại">🔊</button>
+      </div><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div>
+    </section>
+    <section class="panel result" id="result">
+      <p class="eyebrow">🌸 HOÀN THÀNH 🌸</p>
+      <h2 id="resultTitle"></h2>
+      <div class="score-ring" id="scoreRing">
+        <div class="score-text"><span id="score"></span></div>
+      </div><p class="result-note" id="resultNote"></p>
+      <button class="primary" id="retryWrong">Luyện lại chữ đã sai</button>
+      <button class="secondary" id="restart">Làm lại từ đầu</button>
+    </section>
+
+  </main>
+  <footer>JLPT N5</footer>
 </div>
 <script>
 const kana=[
-['あ','a'],['い','i'],['う','u'],['え','e'],['お','o'],['か','ka'],['き','ki'],['く','ku'],['け','ke'],['こ','ko'],['さ','sa'],['し','shi'],['す','su'],['せ','se'],['そ','so'],['た','ta'],['ち','chi'],['つ','tsu'],['て','te'],['と','to'],['な','na'],['に','ni'],['ぬ','nu'],['ね','ne'],['の','no'],['は','ha'],['ひ','hi'],['ふ','fu'],['へ','he'],['ほ','ho'],['ま','ma'],['み','mi'],['む','mu'],['め','me'],['も','mo'],['や','ya'],['ゆ','yu'],['よ','yo'],['ら','ra'],['り','ri'],['る','ru'],['れ','re'],['ろ','ro'],['わ','wa'],['を','wo'],['ん','n'],
-['が','ga'],['ぎ','gi'],['ぐ','gu'],['げ','ge'],['ご','go'],['ざ','za'],['じ','ji'],['ず','zu'],['ぜ','ze'],['ぞ','zo'],['だ','da'],['ぢ','di'],['づ','du'],['で','de'],['ど','do'],['ば','ba'],['び','bi'],['ぶ','bu'],['べ','be'],['ぼ','bo'],['ぱ','pa'],['ぴ','pi'],['ぷ','pu'],['ぺ','pe'],['ぽ','po'],
-['きゃ','kya'],['きゅ','kyu'],['きょ','kyo'],['ぎゃ','gya'],['ぎゅ','gyu'],['ぎょ','gyo'],['しゃ','sha'],['しゅ','shu'],['しょ','sho'],['じゃ','ja'],['じゅ','ju'],['じょ','jo'],['ちゃ','cha'],['ちゅ','chu'],['ちょ','cho'],['にゃ','nya'],['にゅ','nyu'],['にょ','nyo'],['ひゃ','hya'],['ひゅ','hyu'],['ひょ','hyo'],['びゃ','bya'],['びゅ','byu'],['びょ','byo'],['ぴゃ','pya'],['ぴゅ','pyu'],['ぴょ','pyo'],['みゃ','mya'],['みゅ','myu'],['みょ','myo'],['りゃ','rya'],['りゅ','ryu'],['りょ','ryo']
-].map(([char,romaji])=>({char,romaji}));
-const el=id=>document.getElementById(id);let queue=[],index=0,score=0,wrong=[],answeredWrong=false,locked=false,player=new Audio();
-const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const current=()=>queue[index];
-function speak(){player.pause();player.currentTime=0;player.src=`../audio-kana/${current().romaji}.mp3`;player.play().catch(()=>{})}
-function choices(item){const pool=kana.filter(x=>x.romaji!==item.romaji);return shuffle([item,...shuffle(pool).slice(0,3)])}
-function render(){locked=false;answeredWrong=false;const q=current();el('promptLabel').textContent='Chọn cách đọc Romaji đúng';el('word').textContent=q.char;el('count').textContent=`${index+1} / ${queue.length}`;el('progressBar').style.width=`${index/queue.length*100}%`;el('feedback').textContent='';el('feedback').className='feedback';el('answers').replaceChildren(...choices(q).map(c=>{const b=document.createElement('button');b.className='answer';b.textContent=c.romaji;b.onclick=()=>choose(b,c);return b}));setTimeout(speak,180)}
-function choose(b,c){if(locked)return;const q=current();if(c.romaji===q.romaji){locked=true;b.classList.add('correct');if(!answeredWrong)score++;el('feedback').textContent='✓ Chính xác!';el('feedback').className='feedback good';[...el('answers').children].forEach(x=>x.disabled=true);setTimeout(()=>{index++;index<queue.length?render():finish()},650)}else{b.classList.add('wrong');b.disabled=true;answeredWrong=true;if(!wrong.includes(q))wrong.push(q);el('feedback').textContent='Chưa đúng, thử lại nhé!';el('feedback').className='feedback bad'}}
-function begin(items){queue=shuffle(items);index=0;score=0;wrong=[];el('start').classList.add('hidden');el('result').classList.remove('active');el('quiz').classList.add('active');render()}
-function finish(){el('quiz').classList.remove('active');el('result').classList.add('active');const pct=Math.round(score/queue.length*100);el('score').textContent=`${score}/${queue.length}`;el('scoreRing').style.setProperty('--score',`${pct*3.6}deg`);el('resultTitle').textContent=pct===100?'Xuất sắc!':'Bạn đã làm xong!';el('resultNote').textContent=wrong.length?`Bạn còn ${wrong.length} chữ cần ôn lại.`:'Bạn đã trả lời đúng tất cả ngay lần đầu.';el('retryWrong').hidden=!wrong.length}
-el('startBtn').onclick=()=>begin(kana);el('soundBtn').onclick=speak;el('restart').onclick=()=>begin(kana);el('retryWrong').onclick=()=>begin([...wrong]);
+['あ','a'],['い','i'],['う','u'],['え','e'],['お','o'],
+['か','ka'],['き','ki'],['く','ku'],['け','ke'],['こ','ko'],
+['さ','sa'],['し','shi'],['す','su'],['せ','se'],['そ','so'],
+['た','ta'],['ち','chi'],['つ','tsu'],['て','te'],['と','to'],
+['な','na'],['に','ni'],['ぬ','nu'],['ね','ne'],['の','no'],
+['は','ha'],['ひ','hi'],['ふ','fu'],['へ','he'],['ほ','ho'],
+['ま','ma'],['み','mi'],['む','mu'],['め','me'],['も','mo'],
+['や','ya'],['ゆ','yu'],['よ','yo'],
+['ら','ra'],['り','ri'],['る','ru'],['れ','re'],['ろ','ro'],
+['わ','wa'],['を','wo'],['ん','n'],
+['が','ga'],['ぎ','gi'],['ぐ','gu'],['げ','ge'],['ご','go'],
+['ざ','za'],['じ','ji'],['ず','zu'],['ぜ','ze'],['ぞ','zo'],
+['だ','da'],['ぢ','di'],['づ','du'],['で','de'],['ど','do'],
+['ば','ba'],['び','bi'],['ぶ','bu'],['べ','be'],['ぼ','bo'],
+['ぱ','pa'],['ぴ','pi'],['ぷ','pu'],['ぺ','pe'],['ぽ','po'],
+['きゃ','kya'],['きゅ','kyu'],['きょ','kyo'],
+['ぎゃ','gya'],['ぎゅ','gyu'],['ぎょ','gyo'],
+['しゃ','sha'],['しゅ','shu'],['しょ','sho'],
+['じゃ','ja'],['じゅ','ju'],['じょ','jo'],
+['ちゃ','cha'],['ちゅ','chu'],['ちょ','cho'],
+['にゃ','nya'],['にゅ','nyu'],['にょ','nyo'],
+['ひゃ','hya'],['ひゅ','hyu'],['ひょ','hyo'],
+['びゃ','bya'],['びゅ','byu'],['びょ','byo'],
+['ぴゃ','pya'],['ぴゅ','pyu'],['ぴょ','pyo'],
+['みゃ','mya'],['みゅ','myu'],['みょ','myo'],
+['りゃ','rya'],['りゅ','ryu'],['りょ','ryo']
+]
+
+.map(([char,romaji])=>({char,romaji}));
+const el=id=>document.getElementById(id);
+let queue=[],index=0,score=0,wrong=[],answeredWrong=false,locked=false,player=new Audio();
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const current=()=>queue[index];
+function speak(){player.pause();
+  player.currentTime=0;
+  player.src=`../audio-kana/${current().romaji}.mp3`;
+  player.play().catch(()=>{})}
+
+function choices(item){
+  const pool=kana.filter(x=>x.char!==item.char);
+
+  return shuffle([
+    item,
+    ...shuffle(pool).slice(0,3)
+  ]);
+}
+
+function render(){
+  locked=false;
+  answeredWrong=false;
+
+  const q=current();
+
+  // Câu hỏi là Romaji
+  el("promptLabel").textContent="Chọn chữ Hiragana đúng";
+  el("word").textContent=q.romaji;
+
+  el("count").textContent=`${index+1} / ${queue.length}`;
+  el("progressBar").style.width=`${(index/queue.length)*100}%`;
+
+  el("feedback").textContent="";
+  el("feedback").className="feedback";
+
+  // Đáp án là Kana
+  el("answers").replaceChildren(
+    ...choices(q).map(c=>{
+      const b=document.createElement("button");
+
+      b.className="answer";
+      b.textContent=c.char;
+      b.onclick=()=>choose(b,c);
+
+      return b;
+    })
+  );
+
+  // Tự phát âm thanh khi câu hỏi xuất hiện
+  setTimeout(speak,180);
+}
+
+function choose(button,choice){
+  if(locked) return;
+
+  const q=current();
+
+  // Kiểm tra chữ Kana đã chọn
+  if(choice.char===q.char){
+    locked=true;
+    button.classList.add("correct");
+
+    if(!answeredWrong){
+      score++;
+    }
+
+    el("feedback").textContent="✓ Chính xác!";
+    el("feedback").className="feedback good";
+
+    [...el("answers").children].forEach(b=>{
+      b.disabled=true;
+    });
+
+    setTimeout(()=>{
+      index++;
+
+      if(index<queue.length){
+        render();
+      }else{
+        finish();
+      }
+    },650);
+
+  }else{
+    button.classList.add("wrong");
+    button.disabled=true;
+    answeredWrong=true;
+
+    if(!wrong.includes(q)){
+      wrong.push(q);
+    }
+
+    el("feedback").textContent="Chưa đúng, thử lại nhé!";
+    el("feedback").className="feedback bad";
+  }
+}
+
+function begin(items){queue=shuffle(items);
+  index=0;score=0;
+  wrong=[];el('start').classList.add('hidden');
+  el('result').classList.remove('active');
+  el('quiz').classList.add('active');render()
+}
+
+function finish(){el('quiz').classList.remove('active');
+el('result').classList.add('active');
+const pct=Math.round(score/queue.length*100);
+el('score').textContent=`${score}/${queue.length}`;
+el('scoreRing').style.setProperty('--score',`${pct*3.6}deg`);
+el('resultTitle').textContent=pct===100?'Xuất sắc!':'Bạn đã làm xong!';
+el('resultNote').textContent=wrong.length?`Bạn còn ${wrong.length} chữ cần ôn lại.`:'Bạn rất tuyệt vời!';
+el('retryWrong').hidden=!wrong.length}
+el('startBtn').onclick=()=>begin(kana);
+el('soundBtn').onclick=speak;el('restart').onclick=()=>begin(kana);
+el('retryWrong').onclick=()=>begin([...wrong]);
 </script>
 </body></html>
