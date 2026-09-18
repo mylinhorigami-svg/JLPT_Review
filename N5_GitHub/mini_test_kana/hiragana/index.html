@@ -47,14 +47,9 @@
 </head>
 <body>
 <div class="shell">
-  <header>
-    <div class="brand">Học tiếng Nhật cùng Linh</div>
-    <select class="lesson" onchange="if(this.value) window.location.href=this.value">
-      <option value="" selected>Hiragana</option>
-      <option value="../katakana/index.html">Katakana</option>
-      <option value="../../bai1/index.html">N5 · Bài 1</option><option value="../../bai2/index.html">N5 · Bài 2</option>
+  <header><div class="brand">Học tiếng Nhật cùng Linh</div><select class="lesson" onchange="if(this.value) window.location.href=this.value"><option value="" selected>Hiragana</option><option value="../katakana/index.html">Katakana</option><option value="../../bai1/index.html">N5 · Bài 1</option><option value="../../bai2/index.html">N5 · Bài 2</option><option value="../index.html">Trang chọn bài</option></select></header>
   <main>
-    <section class="panel start" id="start"><div class="start-icon">あ</div><p class="eyebrow">Ôn tập Hiragana</p><p class="intro">Chọn cách đọc Romaji đúng.</p><button class="primary" id="startBtn">Bắt đầu luyện tập</button></section>
+    <section class="panel start" id="start"><div class="start-icon">あ</div><p class="eyebrow">Ôn tập Hiragana</p><p class="intro">Nhìn chữ Hiragana, và chọn Romaji đúng.</p><button class="primary" id="startBtn">Bắt đầu luyện tập</button></section>
     <section class="panel quiz" id="quiz"><div class="topline"><div class="bar"><span id="progressBar"></span></div><div class="count" id="count"></div></div><div class="prompt-wrap"><div class="prompt-label" id="promptLabel"></div><div class="word" id="word" lang="ja"></div><button class="sound" id="soundBtn" title="Nghe lại">🔊</button></div><div class="answers" id="answers"></div><div class="feedback" id="feedback"></div></section>
     <section class="panel result" id="result"><p class="eyebrow">🌸 HOÀN THÀNH 🌸</p><h2 id="resultTitle"></h2><div class="score-ring" id="scoreRing"><div class="score-text"><span id="score"></span></div></div><p class="result-note" id="resultNote"></p><button class="primary" id="retryWrong">Luyện lại chữ đã sai</button><button class="secondary" id="restart">Làm lại từ đầu</button></section>
   </main><footer>JLPT N5</footer>
