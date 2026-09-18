@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#d92779">
   <meta name="description" content="Ôn tập từ vựng JLPT N5.">
-  <title>Luyện từ vựng N5 - Bài 1</title>
+  <title>Ôn tập từ vựng N5 - Bài 1</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23d92779'/%3E%3Cpath d='M18 17h28v7H36v24h-8V24H18z' fill='white'/%3E%3Ccircle cx='45' cy='44' r='5' fill='%23ffd55a'/%3E%3C/svg%3E">
   <style>
     :root{--pink:#d92779;--pink-dark:#aa185b;--pink-soft:#fff0f7;--ink:#251821;--muted:#786b74;--line:#ead7e1;--green:#16875c;--red:#ca3f4d;--shadow:0 18px 55px rgba(104,22,65,.13)}
@@ -62,14 +62,19 @@
     </select></header>
     <main>
       <section class="panel start" id="start">
-        <div class="start-icon" aria-hidden="true">語彙</div>
+        <div class="start-icon" aria-hidden="true">📚</div>
         <p class="eyebrow">Ôn tập từ vựng</p>
         <p class="intro">Nghe từ tiếng Nhật và chọn nghĩa tiếng Việt đúng.</p>
         <button class="primary" id="startBtn">Bắt đầu luyện tập</button>
       </section>
 
       <section class="panel quiz" id="quiz" aria-live="polite">
-        <div class="topline"><div class="bar" aria-hidden="true"><span id="progressBar"></span></div><div class="count" id="count">1 / 42</div></div>
+        <div class="topline">
+          <div class="bar" aria-hidden="true">
+            <span id="progressBar"></span>
+          </div>
+          <div class="count" id="count">1 / 42</div>
+        </div>
         <div class="prompt-wrap">
           <div class="prompt-label">Chọn nghĩa đúng của từ</div>
           <div class="word" id="word" lang="ja"></div>
